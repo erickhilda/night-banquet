@@ -6571,7 +6571,10 @@ var assetsHandler = cacheFirst({
     ignoreVary: true
   }
 });
-var defaultFetchHandler = ({ context, request }) => {
+var defaultFetchHandler = ({
+  context,
+  request
+}) => {
   const type = matchRequest(request);
   if (type === "asset") {
     return assetsHandler(context.event.request);
@@ -6603,7 +6606,7 @@ var route1 = __toESM(require_manifest_webmanifest());
 var route2 = __toESM(require_index());
 
 // assets-module:@remix-pwa/dev?assets
-var assets = ["/build/root-FUBGDBM5.css", "/build/root-BE72IGBZ.js", "/build/manifest-2677D891.js", "/build/entry.client-2XBEQTK4.js", "/build/css-bundle-PGXEJ2HQ.css", "/build/__remix_entry_dev-U7EDZ535.js", "/build/routes/manifest[.]webmanifest-J3KYYY3Q.js", "/build/routes/_index-LB5DXXOQ.js", "/build/_shared/runtime-LERX5XEV.js", "/build/_shared/remix_hmr-ZXN6TFD4.js", "/build/_shared/react-dom-BWSPWAB6.js", "/build/_shared/react-ULAOGRWB.js", "/build/_shared/jsx-runtime-2UCOOVD3.js", "/build/_shared/jsx-dev-runtime-UW44IWPL.js", "/build/_shared/esm-YZHNMIOA.js", "/build/_shared/client-VZY4UURK.js", "/build/_shared/chunk-ZMVRVPMH.js", "/build/_shared/chunk-WOWCD3QF.js", "/build/_shared/chunk-SZVA6ZSZ.js", "/build/_shared/chunk-PNG5AS42.js", "/build/_shared/chunk-NJHGJUYQ.js", "/build/_shared/chunk-EBBJSAGM.js", "/build/_shared/chunk-DG4RSSW4.js", "/build/_shared/chunk-5V44UHDH.js", "/build/_shared/chunk-3RXO7ALS.js", "/build/_shared/chunk-3DOW2OXW.js"];
+var assets = ["/build/root-QNPWWR6G.js", "/build/root-FUBGDBM5.css", "/build/manifest-C1B7C418.js", "/build/entry.client-2XBEQTK4.js", "/build/css-bundle-X4E4Y2YS.css", "/build/__remix_entry_dev-U7EDZ535.js", "/build/routes/manifest[.]webmanifest-J3KYYY3Q.js", "/build/routes/_index-OCMH4SCO.js", "/build/_shared/runtime-LERX5XEV.js", "/build/_shared/remix_hmr-ZXN6TFD4.js", "/build/_shared/react-dom-BWSPWAB6.js", "/build/_shared/react-ULAOGRWB.js", "/build/_shared/jsx-runtime-2UCOOVD3.js", "/build/_shared/jsx-dev-runtime-UW44IWPL.js", "/build/_shared/esm-YZHNMIOA.js", "/build/_shared/client-VZY4UURK.js", "/build/_shared/chunk-ZMVRVPMH.js", "/build/_shared/chunk-WOWCD3QF.js", "/build/_shared/chunk-SZVA6ZSZ.js", "/build/_shared/chunk-PNG5AS42.js", "/build/_shared/chunk-NJHGJUYQ.js", "/build/_shared/chunk-EBBJSAGM.js", "/build/_shared/chunk-DG4RSSW4.js", "/build/_shared/chunk-5V44UHDH.js", "/build/_shared/chunk-3RXO7ALS.js", "/build/_shared/chunk-3DOW2OXW.js"];
 
 // entry-module:@remix-pwa/build/magic
 var routes = {
