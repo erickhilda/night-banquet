@@ -1,4 +1,9 @@
-import { LiveReload, useSWEffect } from "@remix-pwa/sw";
+import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
+import "@mantine/nprogress/styles.css";
+// eslint-disable-next-line import/no-unresolved
+import "~/styles/tailwind.css";
+
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
@@ -8,13 +13,15 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { LiveReload, useSWEffect } from "@remix-pwa/sw";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
 export default function App() {
-  useSWEffect
+  useSWEffect;
   return (
     <html lang="en">
       <head>
@@ -22,12 +29,15 @@ export default function App() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <ColorSchemeScript />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+        <MantineProvider>
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </MantineProvider>
       </body>
     </html>
   );
