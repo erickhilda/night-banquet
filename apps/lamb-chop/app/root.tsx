@@ -4,6 +4,7 @@ import "@mantine/nprogress/styles.css";
 // eslint-disable-next-line import/no-unresolved
 import "~/styles/tailwind.css";
 
+import { useEffect } from "react";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
@@ -24,15 +25,18 @@ export const links: LinksFunction = () => [
 export default function App() {
   useSWEffect;
 
-  getGeolocation()
-    .then((position) => {
-      console.log(
-        `Latitude: ${position.latitude}, Longitude: ${position.longitude}`
-      );
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  useEffect(() => {
+    getGeolocation()
+      .then((position) => {
+        console.log(
+          `Latitude: ${position.latitude}, Longitude: ${position.longitude}`
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <html lang="en">
       <head>

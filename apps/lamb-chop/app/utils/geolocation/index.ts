@@ -8,12 +8,6 @@ export default function getGeolocation(): Promise<{
   longitude: number;
 }> {
   return new Promise((resolve, reject) => {
-    if (process.env.NODE_ENV !== "production") {
-      return resolve({
-        latitude: -7.29316,
-        longitude: 112.7837223,
-      });
-    }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
