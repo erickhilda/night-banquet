@@ -15,6 +15,7 @@ import {
 } from "@remix-run/react";
 import { LiveReload, useSWEffect } from "@remix-pwa/sw";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { getGeolocation } from "./utils";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -22,6 +23,16 @@ export const links: LinksFunction = () => [
 
 export default function App() {
   useSWEffect;
+
+  getGeolocation()
+    .then((position) => {
+      console.log(
+        `Latitude: ${position.latitude}, Longitude: ${position.longitude}`
+      );
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   return (
     <html lang="en">
       <head>
