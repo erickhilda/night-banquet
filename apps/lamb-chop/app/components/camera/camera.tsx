@@ -35,8 +35,10 @@ export const Camera = () => {
       if (!stream) {
         return;
       }
+      // @ts-ignore
       const tracks = stream.getTracks();
 
+      // @ts-ignore
       tracks.forEach(function (track) {
         track.stop();
       });

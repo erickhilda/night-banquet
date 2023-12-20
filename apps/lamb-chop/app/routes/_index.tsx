@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Welcome } from "~/components/welcome/welcome";
 import { ColorSchemeToggle } from "~/components/color-scheme-toggle/color-scheme-toggle";
-import { Camera } from "~/components/camera/camera";
+import { Camera } from "~/components/camera";
 
 export const meta: MetaFunction = () => {
   return [
