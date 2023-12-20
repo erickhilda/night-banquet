@@ -4,6 +4,7 @@ import "@mantine/nprogress/styles.css";
 // eslint-disable-next-line import/no-unresolved
 import "~/styles/tailwind.css";
 
+import { useEffect } from "react";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
@@ -15,6 +16,7 @@ import {
 } from "@remix-run/react";
 import { LiveReload, useSWEffect } from "@remix-pwa/sw";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { getGeolocation } from "./utils";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -22,6 +24,19 @@ export const links: LinksFunction = () => [
 
 export default function App() {
   useSWEffect;
+
+  useEffect(() => {
+    getGeolocation()
+      .then((position) => {
+        console.log(
+          `Latitude: ${position.latitude}, Longitude: ${position.longitude}`
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <html lang="en">
       <head>

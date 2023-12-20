@@ -4,3 +4,10 @@ node_modules
 /build
 /public/build
 .env
+
+# pwa generated files
+public/manifest.json
+public/sw.js
+public/workbox-*.js
+
+entry.worker.js
